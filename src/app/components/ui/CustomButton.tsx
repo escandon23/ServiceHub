@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { type ReactNode } from "react"
 import { Pressable, StyleSheet, Text } from "react-native"
 import Colors from "../../../../constants/Colors"
 

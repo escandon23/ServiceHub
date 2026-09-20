@@ -1,8 +1,9 @@
-import CustomButton from "@/app/components/ui/CustomButton"
-import { useRouter } from "expo-router"
-import { StyleSheet, Text, View } from "react-native"
-import Colors from "../../constants/Colors"
-import Logo from "./components/ui/Logo"
+import CustomButton from "@/app/components/ui/CustomButton";
+import { useRouter } from "expo-router";
+import LottieView from "lottie-react-native";
+import { StyleSheet, Text, View } from "react-native";
+import Colors from "../../constants/Colors";
+import Logo from "./components/ui/Logo";
 
 
 const Index = () => {
@@ -19,11 +20,12 @@ const Index = () => {
     return (
             <View style={styles.container}>
                 <Logo style={styles.logo} />
-               <Text style={styles.brandInfo}>Find trusted professionals for the services you need, whenever you need them.</Text>
+               {/* <Text style={styles.brandInfo}>Find trusted professionals for the services you need, whenever you need them.</Text> */}
+               <LottieView source={require("@/assets/images/Thinking.json")} autoPlay loop style={{ width: 300, height: 300 }} />
                 <CustomButton  onPress={getStartedHandler}>Get Started</CustomButton>
                 <View style={styles.loginContainer}>
                   <Text>Already have an account?</Text>
-                  <CustomButton buttonContainer={styles.login} buttonText={styles.loginText} onPress={loginHandler}> Sign In</CustomButton>
+                  <CustomButton buttonContainer={styles.login} buttonText={styles.loginText} onPress={loginHandler}>Sign In</CustomButton>
                 </View>
             </View>
            
@@ -40,12 +42,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.background
     },
     brandInfo: {
-                textAlign: "center",
-
+       textAlign: "center",
     },
     logo: {
-        height: 300,
-        width: 300
+        height: 200,
+        width: 200
     },
      loginContainer: {
         flexDirection: "row",
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     },
    
     loginText: {
-        color: Colors.primaryLight,
+        color: Colors.primary,
         textDecorationLine: "underline",
     }
  

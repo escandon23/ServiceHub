@@ -9,7 +9,7 @@ const Colors = {
   paleMint: "#EFF9F5",
 
   // App
-  background: "#F8FAF9",
+  background: "#d1ecdf",
   surface: "#FFFFFF",
 
   // Text
