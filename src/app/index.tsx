@@ -11,10 +11,10 @@ const Index = () => {
     const router = useRouter()
 
     const getStartedHandler = () => {
-        router.push("/get-started")
+        router.push("/get-started1")
     }
     const loginHandler = () => {
-        return 
+        router.push("/login")
     }
 
     return (

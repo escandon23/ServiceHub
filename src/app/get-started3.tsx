@@ -1,42 +1,43 @@
 import { useNavigation, useRouter } from "expo-router"
 import { useLayoutEffect } from "react"
-import { StyleSheet, Text } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 import Logo from "./components/ui/Logo"
 
 
-const GetStarted = () => {
+
+const GetStarted3 = () => {
 
     const navigation = useNavigation()
 
     const router = useRouter()
+    
+    const logoHandler = () => {
+        router.back()
+    }
+    
 
      useLayoutEffect(() => {
         navigation.setOptions({
             headerLeft : () => <Logo onPress={logoHandler} style={styles.logo}>ServiceHub</Logo>,
-            headerRight: () => <Text>Skip</Text>,
             headerBackVisible: false,
-            headerTitle: "",
-            animation: "none"
+            headerTitle: ""
         })
-    }, [navigation])
+     }
+     , [navigation])
 
-    const logoHandler = () => {
-        router.back()
-    }
 
-   
-
-    return(
-        <></>
+    return (
+        <View>
+             <Text>This is the Get Started 3 Page</Text>
+        </View>
     )
 }
 
-export default GetStarted
-
+export default GetStarted3
 
 const styles = StyleSheet.create({
-    logo: {
+     logo: {
         height: 50,
         width: 50
-    }
+    },
 })
