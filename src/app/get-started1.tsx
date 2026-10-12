@@ -1,51 +1,53 @@
-import { useNavigation, useRouter } from "expo-router"
-import { useLayoutEffect } from "react"
+import LocationPreview from "@/assets/LocationPreview.svg"
+import { useRouter } from "expo-router"
 import { StyleSheet, Text, View } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 import Colors from "../../constants/Colors"
 import CustomButton from "./components/ui/CustomButton"
-import Logo from "./components/ui/Logo"
+import CustomIcon from "./components/ui/CustomIcon"
+import OnboardingDots from "./components/ui/onboarding/OnboardingDots"
 
 
 const GetStarted1 = () => {
-
-    const navigation = useNavigation()
-
+        
     const router = useRouter()
 
-    const logoHandler = () => {
-        router.back()
+    const nextHandler = () => {
+        router.replace("/get-started2")
     }
-
 
     const skipHandler = () => {
         return
     }
 
-    const nextHandler = () => {
-        return
-    }
-
-     useLayoutEffect(() => {
-        navigation.setOptions({
-            headerLeft : () => <Logo onPress={logoHandler} style={styles.logo}>ServiceHub</Logo>,
-            headerRight:
-             () =>  <CustomButton buttonText={styles.skipText} buttonContainer={styles.skipContainer} onPress={skipHandler}>Skip</CustomButton>,
-            headerBackVisible: false,
-            headerTitle: ""
-        })
-    }, [navigation])
-
- 
-   
-
     return(
-        <View>
-            <Text>Discover Nearby Services</Text>
-            <Text>Find Vetted local artisans, cleaners, plumbers, 
-                and technicians ready to assist within miutes right in your neighbourhood.
-            </Text>
-            <CustomButton buttonContainer={styles.nextContainer} onPress={nextHandler}>Next</CustomButton>
-        </View>
+        <>
+            <View pointerEvents="none" style={styles.background}>
+                <LocationPreview width="100%" height="100%" />
+            </View>
+            <SafeAreaView style={styles.screen}>
+                <View>
+                    <CustomButton buttonContainer={styles.buttonContainer} buttonText={styles.buttonText} onPress={skipHandler}>Skip</CustomButton> 
+                </View>
+
+                <View style={styles.container}>
+                    <View>
+                        <View>
+                            <Text style={styles.title}>Discover Nearby Services</Text>
+                            <Text style={styles.subheading}>Find Vetted local artisans, cleaners, plumbers, and technicians ready to assist within miutes right in your neighbourhood.</Text>
+                        </View>
+                        <View style={styles.onboarding}>
+                            <OnboardingDots currentIndex={0}/>
+                            <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                        </View>
+                    </View>
+
+                </View>
+            </SafeAreaView>
+          
+        </>
+
+        
     )
 }
 
@@ -53,25 +55,44 @@ export default GetStarted1
 
 
 const styles = StyleSheet.create({
-    logo: {
-        height: 50,
-        width: 50
-    },
  
-    skipContainer: {
-        backgroundColor: "transparent",
-        padding: 0,
-        paddingHorizontal: 0
-
+    background: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right:0,
+        bottom:200,
+      
     },
-    skipText: {
+    screen: {
+        flex: 1,
+    },
+
+    buttonContainer: {
+        backgroundColor: "transparent",
+        alignSelf: "flex-end"
+    },
+    buttonText: {
         color: Colors.primaryDark
     },
-    nextContainer: {
-        width: "50%",
+    container: {
+        flex: 1,
+        justifyContent: "flex-end",
+        paddingBottom: 50,
+    },
+    title: {
+        textAlign: "center",
+        fontSize: 24,
+        fontWeight: "bold",
+        paddingHorizontal: 40
+    },
+    subheading: {
+        textAlign: "center",
+        fontSize: 14
+    },
+    onboarding: {
         flexDirection: "row",
-        justifyContent: "center",
-        alignSelf: "center"
-    
+        justifyContent: "space-around",
+        marginTop: 50
     }
 })

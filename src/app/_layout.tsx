@@ -7,8 +7,12 @@ export default function Layout() {
             <Stack.Screen name="index" options={{
                 headerShown: false
             }} />
-            <Stack.Screen name="get-started1"/>
-            <Stack.Screen name="get-started2"/>
+            <Stack.Screen name="get-started1" options={{
+                headerShown: false
+            }}/>
+            <Stack.Screen name="get-started2" options={{
+                headerShown: false
+            }}/>
             <Stack.Screen name="get-started3"/>
             <Stack.Screen name="login"/>
         </Stack>
