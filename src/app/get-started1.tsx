@@ -13,7 +13,7 @@ const GetStarted1 = () => {
     const router = useRouter()
 
     const nextHandler = () => {
-        router.replace("/get-started2")
+        router.push("/get-started2")
     }
 
     const skipHandler = () => {
@@ -88,7 +88,9 @@ const styles = StyleSheet.create({
     },
     subheading: {
         textAlign: "center",
-        fontSize: 14
+        fontSize: 16,
+        padding: 14,
+        
     },
     onboarding: {
         flexDirection: "row",

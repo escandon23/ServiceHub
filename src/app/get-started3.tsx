@@ -1,7 +1,11 @@
+import BookingPreview from "@/assets/BookingPreview.svg"
 import { useNavigation, useRouter } from "expo-router"
-import { useLayoutEffect } from "react"
 import { StyleSheet, Text, View } from "react-native"
-import Logo from "./components/ui/Logo"
+import { SafeAreaView } from "react-native-safe-area-context"
+import Colors from "../../constants/Colors"
+import CustomButton from "./components/ui/CustomButton"
+import CustomIcon from "./components/ui/CustomIcon"
+import OnboardingDots from "./components/ui/onboarding/OnboardingDots"
 
 
 
@@ -11,33 +15,80 @@ const GetStarted3 = () => {
 
     const router = useRouter()
     
-    const logoHandler = () => {
-        router.back()
+    const skipHandler = () => {
+        return
+    }
+
+    const nextHandler = () => {
+        return
     }
     
 
-     useLayoutEffect(() => {
-        navigation.setOptions({
-            headerLeft : () => <Logo onPress={logoHandler} style={styles.logo}>ServiceHub</Logo>,
-            headerBackVisible: false,
-            headerTitle: ""
-        })
-     }
-     , [navigation])
 
 
     return (
-        <View>
-             <Text>This is the Get Started 3 Page</Text>
+        <>
+         <View style={styles.background}>
+            <BookingPreview height="100%" width="100%"/>
         </View>
+        <SafeAreaView style={styles.screen}>
+            <View>
+                <CustomButton buttonContainer={styles.buttonContainer} buttonText={styles.buttonText} onPress={skipHandler}>Skip</CustomButton> 
+            </View>
+            <View style={styles.container}>
+                <Text style={styles.title}>Book and Pay With Confidence</Text>
+                <Text style={styles.subheading}>Schedule arrival window that fit your day, track your artisan in real-time, and release payment securely only after the job is completed</Text>
+                <View style={styles.onboarding}>
+                    <OnboardingDots  currentIndex={2}/>
+                    <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                </View>
+            </View>
+        </SafeAreaView>
+
+        </>
+
     )
 }
 
 export default GetStarted3
 
 const styles = StyleSheet.create({
-     logo: {
-        height: 50,
-        width: 50
+    background: {
+        position: "absolute",
+        top: 0,
+        left:0,
+        right: 0,
+        bottom: 200
     },
+    screen: {
+        flex: 1
+    },
+    buttonContainer: {
+        backgroundColor: "transparent",
+        alignSelf: "flex-end"
+    },
+    buttonText: {
+        color: Colors.primaryDark
+    },
+      container: {
+        flex: 1,
+        justifyContent: "flex-end",
+        paddingBottom: 50,
+    },
+     title: {
+        textAlign: "center",
+        fontSize: 24,
+        fontWeight: "bold",
+        paddingHorizontal: 40
+    },
+      subheading: {
+        textAlign: "center",
+         fontSize: 16,
+        padding: 14,
+    },
+        onboarding: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        marginTop: 50
+    }
 })

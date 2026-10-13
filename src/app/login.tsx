@@ -1,7 +1,7 @@
 import { useNavigation, useRouter } from "expo-router"
-import { useLayoutEffect } from "react"
-import { StyleSheet, Text, View } from "react-native"
-import Logo from "./components/ui/Logo"
+import { Button, StyleSheet, Text } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import Colors from "../../constants/Colors"
 
 
 
@@ -11,32 +11,25 @@ export default function Login(){
     const navigation = useNavigation()
 
     const router = useRouter()
-    
-    const logoHandler = () => {
-        router.back()
-    }
-    
 
-     useLayoutEffect(() => {
-        navigation.setOptions({
-            headerLeft : () => <Logo onPress={logoHandler} style={styles.logo}>ServiceHub</Logo>,
-            headerBackVisible: false,
-            headerTitle: ""
-        })
-     }
-     , [navigation])
+    
+    const registerHandler = () => {
+        return
+    }
 
 
     return (
-        <View>
+        <SafeAreaView style={styles.background}>
              <Text>This is the login page</Text>
-        </View>
+             <Button onPress={registerHandler} title="Register" />
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-     logo: {
-        height: 50,
-        width: 50
+     background: {
+        flex: 1,
+        backgroundColor: Colors.background
+
     },
 })

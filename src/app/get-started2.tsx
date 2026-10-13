@@ -15,7 +15,7 @@ const GetStarted2 = () => {
     const router = useRouter()
 
     const nextHandler = () => {
-        return
+        router.push("/get-started3")
     }
     const skipHandler = () => {
         return
@@ -34,17 +34,12 @@ const GetStarted2 = () => {
                 <View style={styles.container}>
                      <Text style={styles.title}>Choose Vetted and Rated Professionsals</Text>
                      <Text style={styles.subheading}>Browse authentic customer ratings, real before and after work portfolios, transparent fixed pricing , and verified background credentials</Text>
-                <View style={styles.onboarding}>
-                    <OnboardingDots  currentIndex={1}/>
-                    <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                    <View style={styles.onboarding}>
+                        <OnboardingDots  currentIndex={1}/>
+                        <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                    </View>
                 </View>
-
-                </View>
-               
-
             </SafeAreaView>
-            
-       
         </>
     )
 }
@@ -62,10 +57,6 @@ const styles = StyleSheet.create({
     },
     screen: {
         flex: 1,
-    },
-     logo: {
-        height: 50,
-        width: 50
     },
     buttonContainer: {
         backgroundColor: "transparent",
@@ -87,7 +78,8 @@ const styles = StyleSheet.create({
     },
       subheading: {
         textAlign: "center",
-        fontSize: 14
+         fontSize: 16,
+        padding: 14,
     },
     onboarding: {
         flexDirection: "row",
