@@ -29,7 +29,12 @@ export default function Layout() {
                  headerShown: false,
                 animation: "none",
             }}/>
-           
+            <Stack.Screen name="signup" options={{
+                headerShown: false,
+                animation : "none"
+            }}/>
+
+    
         </Stack>
 
 

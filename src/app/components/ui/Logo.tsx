@@ -1,5 +1,5 @@
 import { type ReactNode } from "react"
-import { Image, Pressable, StyleSheet, Text, View } from "react-native"
+import { Image, Pressable, StyleSheet, Text } from "react-native"
 import Colors from "../../../../constants/Colors"
 
 interface PropType {
@@ -11,12 +11,10 @@ interface PropType {
 
 const Logo: React.FC<PropType> = ({style, children, onPress}) => {
     return (
-        <View>
             <Pressable style={styles.container} onPress={onPress}>
                 <Image style={style} source={require("@/assets/images/logo.png")} />
                 <Text style={styles.text}>{children}</Text>
             </Pressable>
-         </View>
 
        
     )
@@ -29,7 +27,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 5,
         alignItems: "center",
-        marginVertical: 15
+        marginVertical: 15,
+
     },
     text: {
         fontSize: 18,

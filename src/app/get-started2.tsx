@@ -1,5 +1,6 @@
-import VerifiedPreview from "@/assets/VerifiedPreview.svg"
-import { useNavigation, useRouter } from "expo-router"
+import VerifiedPreview from "@/assets/images/VerifiedPreview.svg"
+import { Ionicons } from "@expo/vector-icons"
+import { useRouter } from "expo-router"
 import { StyleSheet, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import Colors from "../../constants/Colors"
@@ -10,7 +11,6 @@ import OnboardingDots from "./components/ui/onboarding/OnboardingDots"
 
 const GetStarted2 = () => {
 
-    const navigation = useNavigation()
 
     const router = useRouter()
 
@@ -18,7 +18,8 @@ const GetStarted2 = () => {
         router.push("/get-started3")
     }
     const skipHandler = () => {
-        return
+        router.push("/signup")
+
     }
     
 
@@ -36,7 +37,7 @@ const GetStarted2 = () => {
                      <Text style={styles.subheading}>Browse authentic customer ratings, real before and after work portfolios, transparent fixed pricing , and verified background credentials</Text>
                     <View style={styles.onboarding}>
                         <OnboardingDots  currentIndex={1}/>
-                        <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                        <CustomIcon onPress={nextHandler}><Ionicons name="arrow-forward-circle" size={36} color={Colors.primaryDark}/></CustomIcon>
                     </View>
                 </View>
             </SafeAreaView>

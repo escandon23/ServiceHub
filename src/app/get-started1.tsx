@@ -1,4 +1,5 @@
-import LocationPreview from "@/assets/LocationPreview.svg"
+import LocationPreview from "@/assets/images/LocationPreview.svg"
+import { Ionicons } from "@expo/vector-icons"
 import { useRouter } from "expo-router"
 import { StyleSheet, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
@@ -17,7 +18,8 @@ const GetStarted1 = () => {
     }
 
     const skipHandler = () => {
-        return
+      router.push("/signup")
+
     }
 
     return(
@@ -38,7 +40,7 @@ const GetStarted1 = () => {
                         </View>
                         <View style={styles.onboarding}>
                             <OnboardingDots currentIndex={0}/>
-                            <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                            <CustomIcon onPress={nextHandler}><Ionicons name="arrow-forward-circle" size={36} color={Colors.primaryDark}/></CustomIcon>
                         </View>
                     </View>
 

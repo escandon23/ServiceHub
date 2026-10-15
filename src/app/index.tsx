@@ -1,5 +1,5 @@
 import CustomButton from "@/app/components/ui/CustomButton";
-import WelcomePreview from "@/assets/WelcomePreview.svg";
+import WelcomePreview from "@/assets/images/WelcomePreview.svg";
 import { useRouter } from "expo-router";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import Colors from "../../constants/Colors";
@@ -17,7 +17,7 @@ const Index = () => {
 
     return (
 
-        <ImageBackground source={require("@/assets/WelcomeBackground.jpg")} style={styles.container}  resizeMode="cover">
+        <ImageBackground source={require("@/assets/images/WelcomeBackground.jpg")} style={styles.container}  resizeMode="cover">
             <View pointerEvents="none" style={styles.welcomePreview}>
                 <WelcomePreview height="100%" width="100%" />
             </View>

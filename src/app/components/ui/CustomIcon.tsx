@@ -1,23 +1,28 @@
-import { Ionicons } from "@expo/vector-icons"
-import type { ComponentProps } from "react"
-import { Pressable } from "react-native"
+import type { ReactNode } from "react"
+import { Pressable, StyleSheet } from "react-native"
+
 
 
 interface propsType {
-    name: ComponentProps<typeof Ionicons>["name"],
-    size: number,
-    color: string,
+    children? : ReactNode,
+    iconContainer?: {},
     onPress? : () => void
 
 }
-
-const CustomIcon: React.FC<propsType> = ({name , size, color, onPress}) => {
+const CustomIcon: React.FC<propsType> = ({onPress, children, iconContainer}) => {
     return (
-        <Pressable onPress={onPress}>
-            <Ionicons name={name} size={size} color={color} />
+        <Pressable onPress={onPress} style={[styles.iconContainer, iconContainer]}>
+           {children}
         </Pressable>
     )
-
 }
-
 export default CustomIcon
+
+const styles = StyleSheet.create({
+    iconContainer: {
+        flexDirection:"row",
+        justifyContent: "center",
+        alignItems:"center",
+        gap: 10
+    }
+})

@@ -1,5 +1,6 @@
-import BookingPreview from "@/assets/BookingPreview.svg"
-import { useNavigation, useRouter } from "expo-router"
+import BookingPreview from "@/assets/images/BookingPreview.svg"
+import { Ionicons } from "@expo/vector-icons"
+import { useRouter } from "expo-router"
 import { StyleSheet, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import Colors from "../../constants/Colors"
@@ -11,16 +12,16 @@ import OnboardingDots from "./components/ui/onboarding/OnboardingDots"
 
 const GetStarted3 = () => {
 
-    const navigation = useNavigation()
 
     const router = useRouter()
     
     const skipHandler = () => {
-        return
+        router.push("/signup")
+
     }
 
     const nextHandler = () => {
-        return
+        router.push("/signup")
     }
     
 
@@ -40,7 +41,7 @@ const GetStarted3 = () => {
                 <Text style={styles.subheading}>Schedule arrival window that fit your day, track your artisan in real-time, and release payment securely only after the job is completed</Text>
                 <View style={styles.onboarding}>
                     <OnboardingDots  currentIndex={2}/>
-                    <CustomIcon onPress={nextHandler} name="arrow-forward-circle" size={36} color={Colors.primaryDark}/>
+                        <CustomIcon onPress={nextHandler}><Ionicons name="arrow-forward-circle" size={36} color={Colors.primaryDark}/></CustomIcon>
                 </View>
             </View>
         </SafeAreaView>
